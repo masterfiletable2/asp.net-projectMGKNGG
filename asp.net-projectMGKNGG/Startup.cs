@@ -25,7 +25,9 @@ namespace asp.net_projectMGKNGG
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //Po³¹czenie z baz¹ Danych
+            //Po³¹czenie z baz¹ Danych --> migracja wykonana za pomoca komendy add-migration AddOrderToDb
+            //(wynik w katalogu Migrations)
+            //Dziêki niemu stworzymy tabelê w sql za pomoc¹ komendy update-database
             services.AddDbContext<ApplicationDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
             //Odœwie¿anie kompilacji w trakcie uruchomionego IIS AddRazorRuntimeCompilation()
             services.AddRazorPages().AddRazorRuntimeCompilation();

@@ -1,0 +1,58 @@
+﻿@page
+@model asp.net_projectMGKNGG.IndexModel
+@{
+    ViewData["Title"] = "OrderList Page";
+}
+
+
+
+<div class="container row p-0 m-0">
+    <div class="col-9">
+        <h2 class="text-info">Book List</h2>
+    </div>
+    <div class="col-3">
+        <a asp-page="Create" class="btn btn-info form-control text-white">Create New Book</a>
+    </div>
+
+    <div class="col-12 border p-3 mt-3">
+        <form method="post">
+            @if(Model.Orders.Count() > 0)
+            {
+                <table class="table table-striped border">
+                    <tr class="table-secondary">
+                        <th>
+                            <label asp-for="Orders.FirstOrDefault().Name"></label>
+                        </th>
+                        <th>
+                            @*Html.DisplayNameFor(m => m.Orders.FirstOrDefault().Author)*@
+                            <label asp-for="Orders.FirstOrDefault().Name"></label>
+                        </th>
+                        <th>
+                            @*Html.DisplayNameFor(m => m.Orders.FirstOrDefault().Author)*@
+                            <label asp-for="Orders.FirstOrDefault().OpisZamowienia"></label>
+                        </th>
+                        <th></th>
+                    </tr>
+
+                    @foreach(var item in Model.Orders)
+                    {
+                <tr>
+                    <td>@Html.DisplayFor(m => item.Name)</td>
+                    <td>@Html.DisplayFor(m => item.Author)</td>
+                    <td>@Html.DisplayFor(m => item.OpisZamowienia)</td>
+                    <td>
+                        <button class="btn btn-danger btn-sm">Delete</button>
+                        <a class="btn btn-success btn-sm text-white">Edit</a>
+                    </td>
+                </tr>
+                        
+                    }
+                </table>
+            }
+            else
+            {
+                <p>Brak zamówień</p>
+            }
+        </form>
+    </div>
+</div>
