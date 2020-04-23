@@ -25,11 +25,15 @@
                         </th>
                         <th>
                             @*Html.DisplayNameFor(m => m.Orders.FirstOrDefault().Author)*@
-                            <label asp-for="Orders.FirstOrDefault().Name"></label>
+                            <label asp-for="Orders.FirstOrDefault().Author"></label>
                         </th>
                         <th>
                             @*Html.DisplayNameFor(m => m.Orders.FirstOrDefault().Author)*@
                             <label asp-for="Orders.FirstOrDefault().OpisZamowienia"></label>
+                        </th>
+                        <th>
+                            @*Html.DisplayNameFor(m => m.Orders.FirstOrDefault().Author)*@
+                            <label asp-for="Orders.FirstOrDefault().Data"></label>
                         </th>
                         <th></th>
                     </tr>
@@ -40,9 +44,10 @@
                     <td>@Html.DisplayFor(m => item.Name)</td>
                     <td>@Html.DisplayFor(m => item.Author)</td>
                     <td>@Html.DisplayFor(m => item.OpisZamowienia)</td>
+                    <td>@Html.DisplayFor(m => item.Data)</td>
                     <td>
-                        <button class="btn btn-danger btn-sm">Delete</button>
-                        <a class="btn btn-success btn-sm text-white">Edit</a>
+                        <button asp-page-handler="Delete" asp-route-id="@item.Id" onclick="return confirm('Czy na pewno chcesz usunąć ten rekord?')" class="btn btn-danger btn-sm">Delete</button>
+                        <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm text-white">Edit</a>
                     </td>
                 </tr>
                         

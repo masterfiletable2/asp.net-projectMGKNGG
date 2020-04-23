@@ -16,5 +16,7 @@ namespace asp.net_projectMGKNGG.Model
         public string Author { get; set; }
 
         public string OpisZamowienia { get; set; }
+
+        public string Data { get; set; }
     }
 }

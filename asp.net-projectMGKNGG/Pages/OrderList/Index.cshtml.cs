@@ -26,5 +26,22 @@ namespace asp.net_projectMGKNGG
         {
             Orders = await _db.Order.ToListAsync();
         }
+
+
+
+        //Usuwanie rekordu
+        public async Task<IActionResult> OnPostDelete(int id)
+        {
+            var order = await _db.Order.FindAsync(id);
+
+            if(order == null)
+            {
+                return NotFound();
+            }
+            _db.Order.Remove(order);
+            await _db.SaveChangesAsync();
+
+            return RedirectToPage("Index");
+        }
     }
 }

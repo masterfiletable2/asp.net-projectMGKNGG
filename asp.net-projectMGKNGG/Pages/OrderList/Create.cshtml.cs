@@ -17,10 +17,27 @@ namespace asp.net_projectMGKNGG
             _db = db;
         }
 
+        [BindProperty]
         public Order Order { get; set; }
         public void OnGet()
         {
 
+        }
+
+
+        //Tworzenie zamówienia do bazy danych
+        public async Task<IActionResult> OnPost()
+        {
+            if (ModelState.IsValid)
+            {
+                await _db.Order.AddAsync(Order);
+                await _db.SaveChangesAsync();
+                return RedirectToPage("Index");
+            }
+            else
+            {
+                return Page();
+            }
         }
     }
 }
