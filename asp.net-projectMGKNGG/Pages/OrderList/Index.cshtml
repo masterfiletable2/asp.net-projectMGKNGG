@@ -6,58 +6,91 @@
 
 
 
-<div class="container row p-0 m-0">
-    <div class="col-9">
-        <h2 class="text-info">Book List</h2>
-    </div>
-    <div class="col-3">
-        <a asp-page="Create" class="btn btn-info form-control text-white">Create New Book</a>
-    </div>
+    <div class="container row p-0 m-0">
+        <div class="col-9">
+            <h2 class="text-info">Zamówienia</h2>
+        </div>
+        <div class="col-3">
+            <a asp-page="Dodaj" class="btn btn-info form-control text-white">Dodaj nowe zamówienie</a>
+        </div>
 
-    <div class="col-12 border p-3 mt-3">
-        <form method="post">
-            @if(Model.Orders.Count() > 0)
-            {
-                <table class="table table-striped border">
-                    <tr class="table-secondary">
-                        <th>
-                            <label asp-for="Orders.FirstOrDefault().Name"></label>
-                        </th>
-                        <th>
-                            @*Html.DisplayNameFor(m => m.Orders.FirstOrDefault().Author)*@
-                            <label asp-for="Orders.FirstOrDefault().Author"></label>
-                        </th>
-                        <th>
-                            @*Html.DisplayNameFor(m => m.Orders.FirstOrDefault().Author)*@
-                            <label asp-for="Orders.FirstOrDefault().OpisZamowienia"></label>
-                        </th>
-                        <th>
-                            @*Html.DisplayNameFor(m => m.Orders.FirstOrDefault().Author)*@
-                            <label asp-for="Orders.FirstOrDefault().Data"></label>
-                        </th>
-                        <th></th>
+
+
+        <div class="col-12" style="text-align:center">
+            <br />
+            <span class="h3 text-info">Wyszukanie zamówienia</span>
+            <br /><br />
+        </div>
+
+        <div class="col-12 border p-3">
+            <table id="DT_load" class="table table-striped table-bordered" style="width 100%">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Author</th>
+                        <th>OpisZamowienia</th>
+                        <th>Data</th>
                     </tr>
+                </thead>
+            </table>
+        </div>
 
-                    @foreach(var item in Model.Orders)
+        <div class="col-12" style="text-align:center">
+            <br />
+            <span class="h3 text-info">Lista wszystkich zamówień</span>
+            <br /><br />
+        </div>
+
+            <div class="col-12 border p-3 mt-3">
+                <form method="post">
+                    @if (Model.Orders.Count() > 0)
                     {
-                <tr>
-                    <td>@Html.DisplayFor(m => item.Name)</td>
-                    <td>@Html.DisplayFor(m => item.Author)</td>
-                    <td>@Html.DisplayFor(m => item.OpisZamowienia)</td>
-                    <td>@Html.DisplayFor(m => item.Data)</td>
-                    <td>
-                        <button asp-page-handler="Delete" asp-route-id="@item.Id" onclick="return confirm('Czy na pewno chcesz usunąć ten rekord?')" class="btn btn-danger btn-sm">Delete</button>
-                        <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm text-white">Edit</a>
-                    </td>
-                </tr>
-                        
+                        <table class="table table-striped border">
+                            <tr class="table-secondary">
+                                <th>
+                                    <label asp-for="Orders.FirstOrDefault().Name"></label>
+                                </th>
+                                <th>
+                                    @*Html.DisplayNameFor(m => m.Orders.FirstOrDefault().Author)*@
+                                    <label asp-for="Orders.FirstOrDefault().Author"></label>
+                                </th>
+                                <th>
+                                    @*Html.DisplayNameFor(m => m.Orders.FirstOrDefault().Author)*@
+                                    <label asp-for="Orders.FirstOrDefault().OpisZamowienia"></label>
+                                </th>
+                                <th>
+                                    @*Html.DisplayNameFor(m => m.Orders.FirstOrDefault().Author)*@
+                                    <label asp-for="Orders.FirstOrDefault().Data"></label>
+                                </th>
+                                <th></th>
+                            </tr>
+
+                            @foreach (var item in Model.Orders)
+                            {
+                                <tr>
+                                    <td>@Html.DisplayFor(m => item.Name)</td>
+                                    <td>@Html.DisplayFor(m => item.Author)</td>
+                                    <td>@Html.DisplayFor(m => item.OpisZamowienia)</td>
+                                    <td>@Html.DisplayFor(m => item.Data)</td>
+                                    <td>
+                                        <button asp-page-handler="Delete" asp-route-id="@item.Id" onclick="return confirm('Czy na pewno chcesz usunąć ten rekord?')" class="btn btn-danger btn-sm">Usuń</button>
+                                        <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm text-white">Zmień</a>
+                                    </td>
+                                </tr>
+
+                            }
+                        </table>
                     }
-                </table>
-            }
-            else
-            {
-                <p>Brak zamówień</p>
-            }
-        </form>
-    </div>
-</div>
+                    else
+                    {
+                        <p>Brak zamówień</p>
+                    }
+                </form>
+            </div>
+
+        </div>
+
+
+        @section Scripts{
+            <script src="~/js/orderList.js"></script>
+        }

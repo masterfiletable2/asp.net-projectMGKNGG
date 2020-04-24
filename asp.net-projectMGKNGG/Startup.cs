@@ -29,6 +29,7 @@ namespace asp.net_projectMGKNGG
             //(wynik w katalogu Migrations)
             //Dziêki niemu stworzymy tabelê w sql za pomoc¹ komendy update-database
             services.AddDbContext<ApplicationDbContext>(option => option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            services.AddControllersWithViews();
             //Odœwie¿anie kompilacji w trakcie uruchomionego IIS AddRazorRuntimeCompilation()
             services.AddRazorPages().AddRazorRuntimeCompilation();
         }
@@ -56,6 +57,7 @@ namespace asp.net_projectMGKNGG
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllers();
                 endpoints.MapRazorPages();
             });
         }
