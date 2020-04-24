@@ -1,0 +1,29 @@
+﻿@page
+@model asp.net_projectMGKNGG.SearchModel
+@{
+    ViewData["Title"] = "Search Page";
+}
+
+
+<div class="col-12" style="text-align:center">
+    <br />
+    <span class="h3 text-info">Wyszukanie zamówienia</span>
+    <br /><br />
+</div>
+
+<div class="col-12 border p-3">
+    <table id="DT_load" class="table table-striped table-bordered" style="width 100%">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Author</th>
+                <th>OpisZamowienia</th>
+                <th>Data</th>
+            </tr>
+        </thead>
+    </table>
+</div>
+
+@section Scripts{
+    <script src="~/js/orderList.js"></script>
+}
