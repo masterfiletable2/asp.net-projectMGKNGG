@@ -7,7 +7,7 @@ namespace asp.net_projectMGKNGG.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AlterColumn<string>(
-                name: "Author",
+                name: "Temat",
                 table: "Order",
                 nullable: true,
                 oldClrType: typeof(int),
@@ -26,7 +26,7 @@ namespace asp.net_projectMGKNGG.Migrations
                 table: "Order");
 
             migrationBuilder.AlterColumn<int>(
-                name: "Author",
+                name: "Temat",
                 table: "Order",
                 type: "int",
                 nullable: false,

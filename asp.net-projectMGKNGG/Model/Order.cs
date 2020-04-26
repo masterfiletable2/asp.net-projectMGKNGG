@@ -12,8 +12,8 @@ namespace asp.net_projectMGKNGG.Model
         public int Id { get; set; }
 
         [Required]
-        public string Name { get; set; }
-        public string Author { get; set; }
+        public string Temat { get; set; }
+        public string Zleceniodawca { get; set; }
 
         public string OpisZamowienia { get; set; }
 

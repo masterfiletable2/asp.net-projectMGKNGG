@@ -11,8 +11,8 @@ function loadDataTable() {
             "datatype": "json"
         },
         "columns": [
-            { "data": "name", "width": "30%" },
-            { "data": "author", "width": "30%" },
+            { "data": "temat", "width": "30%" },
+            { "data": "zleceniodawca", "width": "30%" },
             { "data": "opisZamowienia", "width": "30%" },
             { "data": "data", "width": "30%" },
 
@@ -20,7 +20,7 @@ function loadDataTable() {
 
         ],
         "language": {
-            "url": "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Polish.json",
+            "url": "~/json/polishApiTable.json",
             "emptyTable": "brak zamówień"
         },
         "width": "100%"

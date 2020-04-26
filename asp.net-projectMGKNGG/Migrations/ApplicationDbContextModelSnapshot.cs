@@ -25,13 +25,13 @@ namespace asp.net_projectMGKNGG.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Author")
+                    b.Property<string>("Temat")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Data")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("Zleceniodawca")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

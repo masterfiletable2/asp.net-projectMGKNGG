@@ -32,8 +32,8 @@ namespace asp.net_projectMGKNGG
             if (ModelState.IsValid)
             {
                 var OrderFromDb = await _db.Order.FindAsync(Order.Id);
-                OrderFromDb.Name = Order.Name;
-                OrderFromDb.Author = Order.Author;
+                OrderFromDb.Temat = Order.Temat;
+                OrderFromDb.Zleceniodawca = Order.Zleceniodawca;
                 OrderFromDb.OpisZamowienia = Order.OpisZamowienia;
                 OrderFromDb.Data = Order.Data;
 

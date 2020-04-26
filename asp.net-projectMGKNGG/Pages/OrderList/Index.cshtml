@@ -6,21 +6,20 @@
 
 
 
-<div class="container row p-0 m-0">
-    <div class="col-9">
-        <h2 class="text-info">Zamówienia</h2>
-    </div>
-    <div class="col-3">
-        <a asp-page="Dodaj" class="btn btn-info form-control text-white">Dodaj nowe zamówienie</a>
-    </div>
+<div class="">
+  
+  
 
 
 
 
-    <div class="col-12" style="text-align:center">
-        <br />
-        <span class="h3 text-info">Lista wszystkich zamówień</span>
-        <br /><br />
+    <div class="row col-12 align-items-center justify-content-between" >
+        
+        <span class="col-10 h2 text-info">Lista wszystkich zamówień</span>
+        
+            <a asp-page="Create" class="btn bg-primary  text-white">Dodaj nowe zamówienie</a>
+        
+    
     </div>
 
     <div class="col-12 border p-3 mt-3">
@@ -30,18 +29,18 @@
                 <table class="table table-striped border">
                     <tr class="table-secondary">
                         <th>
-                            <label asp-for="Orders.FirstOrDefault().Name"></label>
+                            <label asp-for="Orders.FirstOrDefault().Temat"></label>
                         </th>
                         <th>
-                            @*Html.DisplayNameFor(m => m.Orders.FirstOrDefault().Author)*@
-                            <label asp-for="Orders.FirstOrDefault().Author"></label>
+                            @*Html.DisplayNameFor(m => m.Orders.FirstOrDefault().Temat)*@
+                            <label asp-for="Orders.FirstOrDefault().Zleceniodawca"></label>
                         </th>
                         <th>
-                            @*Html.DisplayNameFor(m => m.Orders.FirstOrDefault().Author)*@
+                            @*Html.DisplayNameFor(m => m.Orders.FirstOrDefault().Temat)*@
                             <label asp-for="Orders.FirstOrDefault().OpisZamowienia"></label>
                         </th>
                         <th>
-                            @*Html.DisplayNameFor(m => m.Orders.FirstOrDefault().Author)*@
+                            @*Html.DisplayNameFor(m => m.Orders.FirstOrDefault().Temat)*@
                             <label asp-for="Orders.FirstOrDefault().Data"></label>
                         </th>
                         <th></th>
@@ -50,12 +49,12 @@
                     @foreach (var item in Model.Orders)
                     {
                         <tr>
-                            <td>@Html.DisplayFor(m => item.Name)</td>
-                            <td>@Html.DisplayFor(m => item.Author)</td>
+                            <td>@Html.DisplayFor(m => item.Temat)</td>
+                            <td>@Html.DisplayFor(m => item.Zleceniodawca)</td>
                             <td>@Html.DisplayFor(m => item.OpisZamowienia)</td>
                             <td>@Html.DisplayFor(m => item.Data)</td>
-                            <td>
-                                <button asp-page-handler="Delete" asp-route-id="@item.Id" onclick="return confirm('Czy na pewno chcesz usunąć ten rekord?')" class="btn btn-danger btn-sm">Usuń</button>
+                            <td class="text-right">
+                                <button asp-page-handler="Delete" asp-route-id="@item.Id" onclick="return confirm('Czy na pewno chcesz usunąć ten rekord?')" class="btn btn-info btn-sm">Usuń</button>
                                 <a asp-page="Edit" asp-route-id="@item.Id" class="btn btn-success btn-sm text-white">Zmień</a>
                             </td>
                         </tr>
